@@ -1,12 +1,24 @@
-<div>
+<div class="container">
     <h1>Task Tracker</h1>
     <div id="create-task">
         <input type="text" name="new-task" id="new-task">
         <input type="submit" value="Save">
     </div>
-    <div class="task" data-id="">
-        <input type="checkbox" class="done">
-        <span>New task is created and added to the list</span>
-        <a href="#" class="icon-action">Del.</a>
+    <div id="tasks-container">
+        <div class="task" data-id="" >
+            <input type="checkbox" >
+            <span>New task is created and added to the list</span>
+            <a href="#" class="icon-action">x</a>
+        </div>
+        <div class="task" data-id="">
+            <input type="checkbox" >
+            <span>New task is created and added to the list</span>
+            <a href="#" class="icon-action">x</a>
+        </div>
+        <div class="task done" data-id="">
+            <input type="checkbox" checked>
+            <span>Completed tasks shown at the end with strikethrough</span>
+            <a href="#" class="icon-action">x</a>
+        </div>
     </div>
 </div>
