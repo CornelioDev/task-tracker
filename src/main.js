@@ -1,5 +1,5 @@
 import './style.css'
-import { renderTasks } from './tasks/render-tasks';
+import { tasksApp } from './tasks/tasks-app';
 
 const element = document.querySelector('#app');
-renderTasks( element );
+tasksApp( element );
