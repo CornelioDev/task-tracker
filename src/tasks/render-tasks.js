@@ -1,4 +1,18 @@
-import template from "./tasks.template.html?raw";
+import tasksStore from "./tasks-store";
+
 export const renderTasks = ( element ) => {
-    element.innerHTML = template;
+    const taskList = tasksStore.getTasks();
+    const taskContainer = element.querySelector('#tasks-container');
+    taskContainer.innerHTML = '';
+    taskList.forEach(task => {
+        taskContainer.insertAdjacentHTML('afterbegin', taskItem( task ));
+    });
+}
+
+const taskItem = ( task ) => {
+    return `<div class="task" data-id="${ task.id }">
+                <input type="checkbox" ${ task.done }>
+                <span>${ task.description }</span>
+                <a href="#" class="icon-action">x</a>
+            </div>`;
 }
