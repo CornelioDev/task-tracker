@@ -31,6 +31,9 @@ const updateTaskStatus = ( taskId ) => {
     const tasks = state.tasks;
     const task = tasks.find(( task ) => task.id == taskId);
     task.done = !task.done;
+    tasks.sort((a, b) => {
+        return b.done - a.done;
+    });
     state.tasks = tasks;
     localStorage.setItem('tasks', JSON.stringify( state.tasks ));
 }
