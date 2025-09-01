@@ -10,6 +10,7 @@ const state = {
 const loadTasks = () => {
     if (storedTasks == null) return;
     state.tasks = storedTasks;
+    console.table(state.tasks);
 }
 
 /**
@@ -22,8 +23,16 @@ const saveTasks = ( task ) => {
 
 const deleteTask = ( taskId ) => {
     const tasks = state.tasks;
-    state.tasks = tasks.filter((task) => task.id !== taskId);
-    localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    state.tasks = tasks.filter(( task ) => task.id !== taskId);
+    localStorage.setItem('tasks', JSON.stringify( state.tasks ));
+}
+
+const updateTaskStatus = ( taskId ) => {
+    const tasks = state.tasks;
+    const task = tasks.find(( task ) => task.id == taskId);
+    task.done = !task.done;
+    state.tasks = tasks;
+    localStorage.setItem('tasks', JSON.stringify( state.tasks ));
 }
 
 const getTasks = () => {
@@ -34,5 +43,6 @@ export default {
     loadTasks,
     saveTasks,
     deleteTask,
+    updateTaskStatus,
     getTasks
 }

@@ -7,5 +7,4 @@ export const tasksApp = ( element ) => {
     tasksStore.loadTasks();
     renderTasks( element );
     createTask( element );
-    deleteTask( element );
 }

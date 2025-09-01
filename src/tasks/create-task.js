@@ -35,3 +35,15 @@ export const deleteTask = ( element ) => {
         })
     })
 }
+
+export const completeTask = ( element ) => {
+    const checkBox = document.querySelectorAll('[type="checkbox"]');
+    checkBox.forEach(( check ) => {
+        const taskItem = check.closest('[data-id]');
+        const id = taskItem.getAttribute('data-id');
+        check.addEventListener('change', () => {
+            tasksStore.updateTaskStatus( id );
+            renderTasks( element );
+        })
+    })
+}
