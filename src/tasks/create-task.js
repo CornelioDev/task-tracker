@@ -21,6 +21,17 @@ const newTask = ( description ) => {
     task.id = uuid();
     task.description = description;
     task.done = false;
-    //console.info('New Task', task);
     return task;
+}
+
+export const deleteTask = ( element ) => {
+    const deleteButton = document.querySelectorAll('.icon-action');
+    deleteButton.forEach( (button) => {
+        button.addEventListener('click', () => {
+            const deleteButton = button.closest('[data-id]');
+            const taskId = deleteButton.getAttribute('data-id');
+            tasksStore.deleteTask( taskId );
+            renderTasks( element );
+        })
+    })
 }

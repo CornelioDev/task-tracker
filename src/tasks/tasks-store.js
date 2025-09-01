@@ -20,6 +20,12 @@ const saveTasks = ( task ) => {
     localStorage.setItem('tasks', JSON.stringify(state.tasks));
 }
 
+const deleteTask = ( taskId ) => {
+    const tasks = state.tasks;
+    state.tasks = tasks.filter((task) => task.id !== taskId);
+    localStorage.setItem('tasks', JSON.stringify(state.tasks));
+}
+
 const getTasks = () => {
     return state.tasks;
 }
@@ -27,5 +33,6 @@ const getTasks = () => {
 export default {
     loadTasks,
     saveTasks,
+    deleteTask,
     getTasks
 }

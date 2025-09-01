@@ -1,5 +1,5 @@
 import template from "./tasks.template.html?raw";
-import { createTask } from "./create-task";
+import { createTask, deleteTask } from "./create-task";
 import { renderTasks } from "./render-tasks"
 import tasksStore from "./tasks-store";
 export const tasksApp = ( element ) => {
@@ -7,4 +7,5 @@ export const tasksApp = ( element ) => {
     tasksStore.loadTasks();
     renderTasks( element );
     createTask( element );
+    deleteTask( element );
 }

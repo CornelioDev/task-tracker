@@ -1,3 +1,4 @@
+import { deleteTask } from "./create-task";
 import tasksStore from "./tasks-store";
 
 export const renderTasks = ( element ) => {
@@ -7,6 +8,7 @@ export const renderTasks = ( element ) => {
     taskList.forEach(task => {
         taskContainer.insertAdjacentHTML('afterbegin', taskItem( task ));
     });
+    deleteTask( element );
 }
 
 const taskItem = ( task ) => {
